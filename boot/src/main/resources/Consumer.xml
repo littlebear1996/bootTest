@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+    <!-- 娑堣垂鏂瑰簲鐢ㄥ悕锛岀敤浜庤绠椾緷璧栧叧绯伙紝涓嶆槸鍖归厤鏉′欢锛屼笉瑕佷笌鎻愪緵鏂逛竴鏍� -->
+    <dubbo:application name="consumer" />
+
+    <!-- 浣跨敤zookeeper娉ㄥ唽涓績鏆撮湶鏈嶅姟鍦板潃 -->
+    <!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+
+    <!-- 鐢熸垚杩滅▼鏈嶅姟浠ｇ悊锛屽彲浠ュ儚浣跨敤鏈湴bean涓�鏍蜂娇鐢╠emoService -->
+    <dubbo:reference id="orderService"
+                     interface="com.chinaredstar.api.IOrderService" retries="3" />
+</beans>

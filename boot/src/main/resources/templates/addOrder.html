@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>addOrder</title>
+</head>
+<body>
+<h1 align="center">添加订单</h1>
+
+<form th:method="POST" th:object="${orderVo}" th:action="@{/addOrder}">
+    <table align="center">
+        <tr>
+            <td>用户</td>
+            <td><label>
+                <input type="text" th:field="*{user}">
+            </label></td>
+            <td>
+                <p th:errors="*{user}" style="color: #ff0000;
+    font-weight: bold;
+    font-size: 12px;"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>订单金额</td>
+            <td>
+                <label>
+                    <input type="text" th:field="*{money}">
+                </label>
+            </td>
+            <td>
+                <p th:errors="*{money}" style="color: #ff0000;
+    font-weight: bold;
+    font-size: 12px;"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>订单类型</td>
+            <td><label>
+                <input type="radio" th:field="*{orderType}" value="到付">
+            </label>到付
+                <label>
+                    <input type="radio" th:field="*{orderType}" value="即付">
+                </label>即付
+            </td>
+            <td>
+                <p th:errors="*{orderType}" style="color: #ff0000;
+    font-weight: bold;
+    font-size: 12px;"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>收货地址</td>
+            <td>
+                <label>
+                    <input type="text" th:field="*{orderAddr}">
+                </label>
+            </td>
+            <td>
+                <p th:errors="*{orderAddr}" style="color: #ff0000;
+    font-weight: bold;
+    font-size: 12px;"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>订单状态</td>
+            <td><label>
+                <select th:field="*{state}">
+                    <option value="">-请选择-</option>
+                    <option value="待审核">待审核</option>
+                    <option value="已审核">已审核</option>
+                    <option value="已作废">已作废</option>
+                </select>
+            </label></td>
+            <td>
+                <p th:errors="*{state}" style="color: #ff0000;
+    font-weight: bold;
+    font-size: 12px;"></p>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="确认添加"></td>
+            <td><input type="button" value="Back" onclick="history.go(-1)"/></td>
+            <td><input type="button" value="Forward" onclick="history.go(1)"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

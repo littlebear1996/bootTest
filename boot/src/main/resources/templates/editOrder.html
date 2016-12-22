@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>editOrder</title>
+</head>
+<body>
+<h1 align="center">编辑订单</h1>
+
+<form : th:method="POST" th:object="${orderVo}" th:action="@{/updateOrder}">
+    <table align="center">
+        <tr>
+            <td><input type="hidden" th:field="*{orderId}" th:value="${orderVo.orderId}"></td>
+        </tr>
+        <tr>
+            <td>用户</td>
+            <td><label>
+                <input type="text" th:field="*{user}">
+            </label></td>
+
+            <td><p th:errors="*{user}" style="color: #ff0000;
+    font-weight: bold;
+    font-size: 12px;"></p></td>
+        </tr>
+        <tr>
+            <td>订单金额</td>
+            <td><label>
+                <input type="text" th:field="*{money}">
+            </label></td>
+            <td><p th:errors="*{money}" style="color: #ff0000;
+    font-weight: bold;
+    font-size: 12px;"></p></td>
+        </tr>
+        <tr>
+            <td>订单类型</td>
+            <td>
+                <label>
+                    <input type="radio" th:field="*{orderType}" th:value="到付">到付
+                </label>
+                <label>
+                    <input type="radio" th:field="*{orderType}" th:value="即付">即付
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>收货地址</td>
+            <td><label>
+                <input type="text" th:field="*{orderAddr}">
+            </label></td>
+            <td><p th:errors="*{orderAddr}" style="color: #ff0000;
+    font-weight: bold;
+    font-size: 12px;"></p></td>
+        </tr>
+        <tr>
+            <td>订单状态</td>
+            <td><label>
+                <select th:field="*{state}">
+                    <option th:value="待审核">待审核</option>
+                    <option th:value="已审核">已审核</option>
+                    <option th:value="已作废">已作废</option>
+                </select>
+            </label>
+            <td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="确认修改"></td>
+            <td><input type="button" value="Back" onclick="history.go(-1)"/></td>
+            <td><input type="button" value="Forward" onclick="history.go(1)"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+        >
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>showOrder</title>
+</head>
+<body>
+<h1 align="center" th:text="'欢迎您'+${userName}"></h1>
+<table align="center" border="1" cellpadding="10" cellspacing="0">
+    <tr>
+        <th>订单编号</th>
+        <th>用户</th>
+        <th>订单金额</th>
+        <th>订单类型</th>
+        <th>收货地址</th>
+        <th>下单时间</th>
+        <th>订单状态</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="order:${orderList}">
+        <td th:text="${order.orderId}"></td>
+        <td th:text="${order.user}"></td>
+        <td th:text="${order.money}"></td>
+        <td th:text="${order.orderType}"></td>
+        <td th:text="${order.orderAddr}"></td>
+        <td th:text="${order.orderTime}"></td>
+        <td th:text="${order.state}"></td>
+        <td><a th:href="@{getOrder(orderId=${order.orderId})}">Edit</a></td>
+        <td><a th:href="@{delOrder(orderId=${order.orderId})}">Delete</a></td>
+    </tr>
+</table>
+<div align="center">
+    <input type="button" value="添加订单" onclick="window.location.href='toAddOrder'">
+    <input type="button" value="切换用户" onclick="window.location.href='register'">
+    <input type="button" value="Back" onclick="history.go(-1)" />
+    <input type="button" value="Forward" onclick="history.go(1)" />
+</div>
+</body>
+</html>

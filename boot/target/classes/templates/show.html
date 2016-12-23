@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详细资料</title>
+    <style type="text/css">
+        table {
+            border-collapse: collapse;
+            font-family: Futura, Arial, sans-serif;
+        }
+        caption {
+            font-size: larger;
+            margin: 1em auto;
+        }
+        th, td {
+            padding: .65em;
+        }
+        th {
+            background: #555 nonerepeat scroll 0 0;
+            /* border: 1px solid #777; */
+            color: #fff;
+        }
+        td {
+            /* border: 1px solid #777; */
+        }
+        tbody tr:nth-child(odd) {
+            background: #ccc;
+        }
+        th:first-child {
+            border-radius: 9px 0 0 0;
+        }
+        th:last-child {
+            border-radius: 0 9px 0 0;
+        }
+        tr:last-child td:first-child {
+            border-radius: 0 0 0 9px;
+        }
+        tr:last-child td:last-child {
+            border-radius: 0 0 9px 0;
+        }
+    </style>
+</head>
+<body>
+<table align="center">
+    <caption>用户详细信息</caption>
+    <tbody>
+    <tr>
+        <td>用户ID:</td>
+        <td th:text="${user.id}"></td>
+    </tr>
+    <tr>
+        <td>用户名:</td>
+        <td th:text="${user.userName}"></td>
+    </tr>
+    <tr>
+        <td>生日:</td>
+        <td th:text="${user.birthDate}"></td>
+    </tr>
+    <tr>
+        <td>性别:</td>
+        <td th:switch="${user.sex}">
+            <p th:case="'0'">女</p>
+
+            <p th:case="'1'">男</p>
+        </td>
+
+    </tr>
+    <tr>
+        <td>年龄:</td>
+        <td th:text="${user.age}"></td>
+    </tr>
+    <tr>
+        <td>邮箱:</td>
+        <td th:text="${user.email}"></td>
+    </tr>
+    <tr>
+        <td>地址:</td>
+        <td th:text="${user.address}"></td>
+    </tr>
+    <tr>
+        <td>创建时间:</td>
+        <td th:text="${#dates.format(user.createTime, 'yyyy-MM-dd HH:mm')}"></td>
+    </tr>
+    <tr>
+        <td>修改时间:</td>
+        <td th:if="${user.modifyTime}!=null" th:text="${#dates.format(user.modifyTime, 'yyyy-MM-dd HH:mm')}"></td>
+    </tr>
+    </tbody>
+</table>
+<div align="center">
+    <input type="button" onclick="window.location.href='toUpdate'" value="更新用户信息"/>
+</div>
+</body>
+</html>

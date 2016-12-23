@@ -2,6 +2,7 @@ package com.chinaredstar.Controller;
 
 import com.chinaredstar.api.IOrderService;
 import com.chinaredstar.api.vo.OrderVo;
+import com.chinaredstar.api.vo.User;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ImportResource;
@@ -19,29 +20,18 @@ import java.util.Map;
  * Created by huanhuan.jin on 2016/12/20.
  */
 @Controller
-@ImportResource(locations = "customer.xml")
 public class OrderController {
     private Logger logger = Logger.getLogger(OrderController.class);
     @Autowired
     private IOrderService orderService;
-
-    @RequestMapping(value = {"/"})
-    public String index() {
-        return "index";
-    }
-
     /**
      * 获取某个用户的所有订单
      */
     @RequestMapping("/showOrder")
-    public String getAllOrder(String userName, HttpSession hs, Map<String, Object> map) {
-        if (null == userName) {
-            //userName = (String) hs.getAttribute("userName");
-            map.put("userName", "tom");
-        } else {
-            map.put("userName", userName);
-        }
-        map.put("orderList", orderService.getOrderByName("tom"));
+    public String getAllOrder(HttpSession hs,Model model) {
+        User user = (User) hs.getAttribute("user");
+        model.addAttribute("userName",user.getUserName());
+        model.addAttribute("orderList",orderService.getOrderByName(user.getUserName()));
         return "/showOrder";
     }
 
@@ -49,8 +39,11 @@ public class OrderController {
      * 跳转到添加订单页面
      */
     @RequestMapping("/toAddOrder")
-    public String toAddOrder(ModelMap model) {
-        model.addAttribute("orderVo", new OrderVo());
+    public String toAddOrder(ModelMap model,HttpSession hs) {
+        User user = (User) hs.getAttribute("user");
+        OrderVo orderVo = new OrderVo();
+        orderVo.setUser(user.getUserName());
+        model.addAttribute("orderVo", orderVo);
         return "/addOrder";
     }
 

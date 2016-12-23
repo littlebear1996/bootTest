@@ -6,22 +6,15 @@
     <title>editOrder</title>
 </head>
 <body>
-<h1 align="center">编辑订单</h1>
+<h1 align="center"th:text="'编辑'+${orderVo.user}+'订单'"></h1>
 
 <form : th:method="POST" th:object="${orderVo}" th:action="@{/updateOrder}">
     <table align="center">
         <tr>
             <td><input type="hidden" th:field="*{orderId}" th:value="${orderVo.orderId}"></td>
         </tr>
-        <tr>
-            <td>用户</td>
-            <td><label>
-                <input type="text" th:field="*{user}">
-            </label></td>
-
-            <td><p th:errors="*{user}" style="color: #ff0000;
-    font-weight: bold;
-    font-size: 12px;"></p></td>
+        <tr>                                                                           ame
+            <td><input type="hidden" th:field="*{user}" th:value="${orderVo.user}"></td>
         </tr>
         <tr>
             <td>订单金额</td>

@@ -6,20 +6,12 @@
     <title>addOrder</title>
 </head>
 <body>
-<h1 align="center">添加订单</h1>
+<h1 align="center" th:text="'添加'+${orderVo.user}+'订单'"></h1>
 
 <form th:method="POST" th:object="${orderVo}" th:action="@{/addOrder}">
     <table align="center">
         <tr>
-            <td>用户</td>
-            <td><label>
-                <input type="text" th:field="*{user}">
-            </label></td>
-            <td>
-                <p th:errors="*{user}" style="color: #ff0000;
-    font-weight: bold;
-    font-size: 12px;"></p>
-            </td>
+            <td><input type="hidden" th:field="*{user}" th:value="${orderVo.user}"></td>
         </tr>
         <tr>
             <td>订单金额</td>

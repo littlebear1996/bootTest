@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../../demo2/skeleton-dubbo-archetype-api/target/skeleton-dubbo-archetype-api-1.0-SNAPSHOT.jar!/" />
+          <root url="file://$MODULE_DIR$/../../../../demo2" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$MODULE_DIR$/../../../../demo2/skeleton-dubbo-archetype-api/target/skeleton-dubbo-archetype-api-1.0-SNAPSHOT-javadoc.jar!/" />
+          <root url="file://$MODULE_DIR$/../../../../demo2/skeleton-dubbo-archetype-api/target/apidocs" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../../../demo2/skeleton-dubbo-archetype-api/target/skeleton-dubbo-archetype-api-1.0-SNAPSHOT-sources.jar!/" />
+          <root url="file://$MODULE_DIR$/../../../../demo2/skeleton-dubbo-archetype-api/src/main/java" />
+          <root url="file://$MODULE_DIR$/../../../../demo2/skeleton-dubbo-archetype-service/src/main/java" />
+          <root url="file://$MODULE_DIR$/../../../../demo2/skeleton-dubbo-archetype-service/src/test/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

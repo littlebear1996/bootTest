@@ -92,5 +92,26 @@
     <orderEntry type="library" name="Maven: net.sourceforge.nekohtml:nekohtml:1.9.21" level="project" />
     <orderEntry type="library" name="Maven: xerces:xercesImpl:2.10.0" level="project" />
     <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.4.01" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/develop/dubbo/intern-dubbo-api/target/intern-dubbo-api-1.0-SNAPSHOT.jar!/" />
+          <root url="file://$MODULE_DIR$/../.." />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://D:/develop/dubbo/intern-dubbo-api/target/intern-dubbo-api-1.0-SNAPSHOT-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://D:/develop/dubbo/intern-dubbo-api/target/intern-dubbo-api-1.0-SNAPSHOT-sources.jar!/" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/test/java" />
+          <root url="file://$MODULE_DIR$/../../newDemo/demo03/demo03/skeleton-dubbo-boot-archetype-api/src/main/java" />
+          <root url="file://$MODULE_DIR$/../../newDemo/demo03/demo03/skeleton-dubbo-boot-archetype-service/src/main/java" />
+          <root url="file://$MODULE_DIR$/../../newDemo/demo03/demo03/skeleton-dubbo-boot-archetype-service/src/test/java" />
+          <root url="file://$MODULE_DIR$/../../newDemo/demo/src/main/java" />
+          <root url="file://$MODULE_DIR$/../../newDemo/demo/src/test/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

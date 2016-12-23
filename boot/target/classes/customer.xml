@@ -5,14 +5,13 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-
-    <!-- 娑堣垂鏂瑰簲鐢ㄥ悕锛岀敤浜庤绠椾緷璧栧叧绯伙紝涓嶆槸鍖归厤鏉′欢锛屼笉瑕佷笌鎻愪緵鏂逛竴鏍� -->
+    <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
     <dubbo:application name="consumer" />
 
-    <!-- 浣跨敤zookeeper娉ㄥ唽涓績鏆撮湶鏈嶅姟鍦板潃 -->
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />
 
-    <!-- 鐢熸垚杩滅▼鏈嶅姟浠ｇ悊锛屽彲浠ュ儚浣跨敤鏈湴bean涓�鏍蜂娇鐢╠emoService -->
+    <!-- 生成远程服务代理，可以像使用本地bean一样使用demoService -->
     <dubbo:reference id="orderService"
                      interface="com.chinaredstar.api.IOrderService" retries="3" />
 </beans>

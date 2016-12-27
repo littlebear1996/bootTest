@@ -171,16 +171,20 @@
 <div class="login">
     <h1>Register</h1>
     <form th:action="@{/register}" th:object="${user}" method="post">
-        <input type="text" name="userName" id="userName" placeholder="Username"/><br>
-        <!--<span th:errors="*{userName}"></span>-->
-        <!--<input type="text" th:field="*{userName}" placeholder="Username"><br>-->
+        <!--<input type="text" name="userName" id="userName" placeholder="Username"/><br>-->
         <!--<p th:errors="*{userName}"></p>-->
-        <!--<input type="text" th:field="*{datePlanted}" />-->
-        <!--<p th:if="${#fields.hasErrors('datePlanted')}" th:errors="*{datePlanted}">Incorrect date</p>-->
-        <!--<p th:errors="${userName}"></p>-->
+        <input type="text" th:field="*{userName}"  name="userName" id="userName" placeholder="Username">
+        <ul th:if="${#fields.hasErrors('*')}">
+            <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+        </ul>
+        <ul>
+            <li th:each="err : ${#fields.errors('userName')}" th:text="${err}" />
+        </ul>
+        <p th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">error aaaa</p><br>
+        <!--<input type="text" th:field="*{userName}" th:class="${#fields.hasErrors('userName')}? fieldError" placeholder="Username"/>-->
         <input type="password" name="password" id="password" placeholder="Password"/><br>
         <!--<p th:errors="${password}"></p>-->
-        <input type="text" name="email" id="email" placeholder="email"/><br>
+        <input type="text" name="email" id="email" placeholder="Email"/><br>
         <!--<p th:errors="${email}"></p>-->
         <button type="submit" class="btn btn-primary btn-block btn-large">确认注册</button>
     </form>

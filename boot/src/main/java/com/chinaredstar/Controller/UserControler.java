@@ -15,11 +15,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.net.HttpCookie;
 
 /**
  * @author Littlebear1996
@@ -43,26 +43,34 @@ public class UserControler {
     }
 
     @RequestMapping(value = "/register", method = {RequestMethod.GET})
-    public String toRegister() {
+    public String toRegister(User user) {
         return "register";
     }
 
     @RequestMapping(value = "/register", method = {RequestMethod.POST})
     public String register(Model model,
-                           @ModelAttribute(value = "user") User user,
-                           HttpServletResponse response) {
-        String flag = userService.insertUser(user);
-        StringBuffer result = new StringBuffer("");
-        if (flag.equals("failure")) {
+                           @Valid @ModelAttribute(value = "user") User user,
+                           HttpServletResponse response,
+                           BindingResult bindingResult) {
+        System.out.println("sss");
+        System.out.println(bindingResult.hasErrors());
+        if(!bindingResult.hasErrors()) {
+            String flag = userService.insertUser(user);
+            StringBuffer result = new StringBuffer("");
+            if (flag.equals("failure")) {
+                logger.info("注册失败");
+                result.append("注册失败,您所注册的用户名已存在,请重新注册");
+                model.addAttribute("result", result);
+                return "register";
+            } else {
+                logger.info("注册成功");
+                result.append("注册成功,请您点击登录开始登陆");
+                model.addAttribute("result", result);
+                return response.encodeRedirectURL("/login");
+            }
+        }else {
             logger.info("注册失败");
-            result.append("注册失败,您所注册的用户名已存在,请重新注册");
-            model.addAttribute("result", result);
-            return "register";
-        } else {
-            logger.info("注册成功");
-            result.append("注册成功,请您点击登录开始登陆");
-            model.addAttribute("result", result);
-            return response.encodeRedirectURL("/login");
+            return response.encodeRedirectURL("/index");
         }
     }
 
@@ -74,16 +82,16 @@ public class UserControler {
     @RequestMapping(value = "/login", method = {RequestMethod.POST})
     public String login(Model model,
                         @ModelAttribute(value = "user") User user,
-                        HttpServletResponse response,
-                        HttpSession session
+                        HttpServletResponse response
     ) {
         String flag = userService.findUserByName(user);
         StringBuffer result = new StringBuffer("");
         if (flag.equals("success")) {
             logger.info("login success");
-            result.append("登陆成功,欢迎您:" + user.getUserName());
-            session.setAttribute("user", user);
-            model.addAttribute("result", result);
+            //result.append("登陆成功,欢迎您:" + user.getUserName());
+            HttpCookie cookie = new HttpCookie("userName", user.getUserName());
+            //session.setAttribute("userName", user.getUserName());
+            //model.addAttribute("result", result);
             return response.encodeRedirectURL("/success");
         } else if (flag.equals("failure")) {
             logger.info("login failure");
@@ -103,15 +111,15 @@ public class UserControler {
                        HttpServletResponse response,
                        HttpSession session
     ) {
-        User user = (User) session.getAttribute("user");
-        session.setAttribute("user", userService.getUser(user.getUserName()));
-        model.addAttribute("user", userService.getUser(user.getUserName()));
+        //User user = (User) session.getAttribute("user");
+        String userName = (String)session.getAttribute("userName");
+        model.addAttribute("user", userService.getUser(userName));
         return response.encodeRedirectURL("/show");
     }
 
     @RequestMapping("/toUpdate")
     public String toUpdate(Model model, HttpSession session) {
-        model.addAttribute("user", session.getAttribute("user"));
+        model.addAttribute("user", userService.getUser((String)session.getAttribute("userName")));
         return "update";
     }
 

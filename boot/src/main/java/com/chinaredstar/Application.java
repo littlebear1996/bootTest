@@ -17,7 +17,8 @@ import org.springframework.context.annotation.ImportResource;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan("com.chinaredstar")
-@ImportResource(locations = "classptah:customer.xml")
+
+@ImportResource(locations = "classpath:customer.xml")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

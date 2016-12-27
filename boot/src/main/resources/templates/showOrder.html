@@ -6,8 +6,32 @@
     <meta charset="UTF-8"/>
     <title>showOrder</title>
 </head>
+<SCRIPT language=javascript>
+    function turn(){
+        var page = document.getElementById("goPage").value;
+        if(/^[1-9]\d*$/.test(page)) {
+            window.location.href = "showOrder?pageNo=" + page;
+        }
+        else{
+            alert("请输入正整数");
+        }
+    }
+    function set(){
+        var size = document.getElementById("pageSize").value;
+        if(/^[1-9]\d*$/.test(size)) {
+            window.location.href = "showOrder?pageSize=" + size;
+        }
+        else{
+            alert("请输入正整数");
+        }
+    }
+</SCRIPT>
 <body>
 <h1 align="center" th:text="'欢迎您'+${userName}"></h1>
+<div align="center">
+    <input id="goPage" type="text"><input type="button" value="跳转" onClick="turn()">
+    <input id="pageSize" type="text"><input type="button" value="设置行数" onClick="set()">
+</div>
 <table align="center" border="1" cellpadding="10" cellspacing="0">
     <tr>
         <th>订单编号</th>
@@ -33,10 +57,14 @@
     </tr>
 </table>
 <div align="center">
+    <a th:text="'第'+${currPage}+'页'"></a>
+    <a th:text="'共'+${maxPage}+'页'"></a>
     <input type="button" value="添加订单" onclick="window.location.href='toAddOrder'">
-    <input type="button" value="切换用户" onclick="window.location.href='register'">
-    <input type="button" value="Back" onclick="history.go(-1)" />
-    <input type="button" value="Forward" onclick="history.go(1)" />
+    <input type="button" value="切换用户" onclick="window.location.href='login'">
+    <a th:href="@{showOrder(pageNo=1)}" >首页</a>
+    <a th:href="@{showOrder(pageNo=${maxPage})}" >末页</a>
+    <a th:href="@{showOrder(pageNo=${currPage}>1?${currPage}-1:1)}" >上一页</a>
+    <a th:href="@{showOrder(pageNo=${currPage}<${maxPage}?${currPage}+1:${maxPage})}">下一页</a>
 </div>
 </body>
 </html>

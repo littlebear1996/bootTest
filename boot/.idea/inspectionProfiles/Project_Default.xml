@@ -4,7 +4,7 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="18">
+          <list size="19">
             <item index="0" class="java.lang.String" itemvalue="th" />
             <item index="1" class="java.lang.String" itemvalue="th:each" />
             <item index="2" class="java.lang.String" itemvalue="th:text" />
@@ -23,6 +23,7 @@
             <item index="15" class="java.lang.String" itemvalue=":" />
             <item index="16" class="java.lang.String" itemvalue="th:value" />
             <item index="17" class="java.lang.String" itemvalue="th:checked" />
+            <item index="18" class="java.lang.String" itemvalue="th:onclick" />
           </list>
         </value>
       </option>
@@ -31,7 +32,7 @@
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="16">
+          <list size="17">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -48,6 +49,7 @@
             <item index="13" class="java.lang.String" itemvalue="label" />
             <item index="14" class="java.lang.String" itemvalue="cssstyle" />
             <item index="15" class="java.lang.String" itemvalue="th:style" />
+            <item index="16" class="java.lang.String" itemvalue="function" />
           </list>
         </value>
       </option>

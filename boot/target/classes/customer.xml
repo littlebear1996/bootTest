@@ -9,7 +9,7 @@
 
     <dubbo:annotation package="com.chinaredstar"/>
 
-    <dubbo:registry  address="zookeeper://192.168.224.238:2181"/>
+    <dubbo:registry  address="zookeeper://192.168.224.179:2181"/>
     <!--<dubbo:registry address="zookeeper://192.168.224.79" />-->
 
     <dubbo:reference id="userService" interface="com.chinaredstar.api.IUserService" retries="3" check="false" timeout="1200000"/>

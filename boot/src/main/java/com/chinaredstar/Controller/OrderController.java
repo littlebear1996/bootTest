@@ -31,7 +31,7 @@ public class OrderController {
     public String getAllOrder(HttpSession hs,Model model) {
         User user = (User) hs.getAttribute("user");
         model.addAttribute("userName",user.getUserName());
-        model.addAttribute("orderList",orderService.getOrderByName(user.getUserName()));
+
         return "/showOrder";
     }
 

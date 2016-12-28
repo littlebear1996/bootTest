@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="FacetManager">
-    <facet type="Spring" name="Spring">
-      <configuration />
-    </facet>
-  </component>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -81,13 +77,66 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/intern-dubbo-api-1.0-SNAPSHOT.jar!/" />
+          <root url="file://$USER_HOME$/Downloads" />
+          <root url="file://$USER_HOME$/Downloads" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/Downloads/intern-dubbo-api-1.0-SNAPSHOT-javadoc.jar!/" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/docs/api" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Downloads/intern-dubbo-api-1.0-SNAPSHOT-sources.jar!/" />
+          <root url="file://$USER_HOME$/Downloads" />
+          <root url="file://$USER_HOME$/Downloads/Mybatis-PageHelper-master/src/main/java" />
+          <root url="file://$USER_HOME$/Downloads/Mybatis-PageHelper-master/src/test/java" />
+          <root url="file://$USER_HOME$/Downloads/apache-tomcat-8.0.39/webapps/docs/appdev/sample/src" />
+          <root url="file://$USER_HOME$/Downloads/apache-tomcat-8.0.39/webapps/examples/WEB-INF/classes" />
+          <root url="file://$USER_HOME$/Downloads/apache-tomcat-8.0.39/webapps/examples/WEB-INF/jsp/applet" />
+          <root url="file://$USER_HOME$/Downloads/apache-tomcat-8.0.39/webapps/examples/jsp/plugin/applet" />
+          <root url="file://$USER_HOME$/Downloads/srt/src/main/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/contrib/ZooInspector/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/contrib/fatjar/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/contrib/loggraph/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/recipes/election/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/recipes/election/test" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/recipes/lock/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/recipes/lock/test" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/recipes/queue/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/recipes/queue/test" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/contrib/fatjar/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/contrib/loggraph/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/contrib/rest/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/contrib/rest/src/test" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/contrib/zooinspector/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/java/generated" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/java/main" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/java/systest" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/java/test" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/recipes/election/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/recipes/election/test" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/recipes/lock/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/recipes/lock/test" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/recipes/queue/src/java" />
+          <root url="file://$USER_HOME$/Downloads/zookeeper-3.4.8/src/recipes/queue/test" />
+        </SOURCES>
+        <jarDirectory url="file://$USER_HOME$/Downloads" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Downloads" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar://$MODULE_DIR$/../../demo2/skeleton-dubbo-archetype-api/target/skeleton-dubbo-archetype-api-1.0-SNAPSHOT.jar!/" />
+          <root url="file://$MODULE_DIR$" />
         </CLASSES>
         <JAVADOC>
           <root url="jar://$MODULE_DIR$/../../demo2/skeleton-dubbo-archetype-api/target/skeleton-dubbo-archetype-api-1.0-SNAPSHOT-javadoc.jar!/" />
         </JAVADOC>
         <SOURCES>
           <root url="jar://$MODULE_DIR$/../../demo2/skeleton-dubbo-archetype-api/target/skeleton-dubbo-archetype-api-1.0-SNAPSHOT-sources.jar!/" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/test/java" />
         </SOURCES>
       </library>
     </orderEntry>

@@ -13,4 +13,5 @@
     <!--<dubbo:registry address="zookeeper://192.168.224.79" />-->
 
     <dubbo:reference id="userService" interface="com.chinaredstar.api.IUserService" retries="3" check="false" timeout="1200000"/>
+    <dubbo:reference id="orderService" interface="com.chinaredstar.api.IOrderService" retries="3" check="false" timeout="1200000"/>
 </beans>
